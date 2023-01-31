@@ -5,6 +5,8 @@
     text-align: center;
     margin: 10px;
 }
-.mat-input{
-    width: 500px;
+@media screen and (min-width: 570px) {
+    .mat-input{
+        width: 500px;
+    }
 }
