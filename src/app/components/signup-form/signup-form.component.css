@@ -1,0 +1,13 @@
+
+@media screen and (min-width: 570px) {
+    .mat-input{
+        width: 500px;
+    }
+}
+
+.register-bg{
+    background-color: #673ab7;
+    padding: 10px;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

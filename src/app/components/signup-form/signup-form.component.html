@@ -1,0 +1,97 @@
+<h1 class="text-center register-bg">Registration Form</h1>
+<div class="container">
+  <form class="text-center" [formGroup]="registerForm">
+    <mat-form-field class="mat-input" *ngIf="isVisible">
+      <input
+        name="name"
+        placeholder="Your Name"
+        formControlName=""
+        matInput
+      />
+    </mat-form-field>
+    <!-- Name -->
+
+    <mat-form-field class="mat-input">
+      <input
+        name="nameFormControl"
+        placeholder="Your Name"
+        formControlName="nameFormControl"
+        matInput
+      />
+
+      <mat-error *ngIf="!registerForm.controls['nameFormControl'].valid">
+        Name is <strong>required please fill</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Email -->
+    <br /><br />
+    <mat-form-field class="mat-input">
+      <input
+        name="email"
+        type="email"
+        placeholder="Valid Email Id"
+        matInput
+        formControlName="emailFormControl"
+      />
+      <mat-error *ngIf="!registerForm.controls['emailFormControl'].valid">
+        Please enter a <strong>valid email address</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Mobile -->
+    <br /><br />
+    <mat-form-field appearance="fill" class="mat-input">
+      <input
+        name="phone"
+        matInput
+        type="number"
+        placeholder="Valid 10 Digit Mobile.No"
+        #input
+        placeholder="Your Valid Mobile.No"
+        formControlName="phoneFormControl"
+      />
+      <!-- [formControl] = "phoneFormControl" -->
+      <mat-hint align="end">{{ input.value.length || 0 }}/10</mat-hint>
+
+      <mat-error *ngIf="!registerForm.controls['phoneFormControl'].valid">
+        Please enter a <strong>Valid Phone Number</strong>
+      </mat-error>
+    </mat-form-field>
+    <br /><br />
+    <!-- Website url -->
+
+    <mat-form-field class="mat-input">
+      <input
+        name="website"
+        matInput
+        placeholder="Your Website URL"
+        formControlName="websiteFormControl"
+      />
+    </mat-form-field>
+    <br /><br />
+    <!-- Message -->
+    <mat-form-field class="mat-input">
+      <textarea
+        name="message"
+        formControlName="messageFormControl"
+        placeholder="Your Requirement"
+        matInput
+      ></textarea>
+      <mat-error *ngIf="!registerForm.controls['messageFormControl'].valid">
+        Please enter a <strong>message</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <br /><br />
+    <!-- Send button -->
+    <button mat-raised-button color="primary" name="submit" (click)="onSubmit()" type="submit">
+      Submit
+    </button>
+    <!-- <button class="btn btn-primary hoverable" (click)="onSubmit()" name="submit" type="submit">
+      Update
+    </button> -->
+  </form>
+</div>
+
+<!-- [disabled] = !registerForm.valid -->

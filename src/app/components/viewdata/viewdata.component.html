@@ -1,0 +1,59 @@
+<div>
+  <app-edit-user
+    (onUpdate)="onUpdate($event)"
+    [formData]="users"
+    *ngIf="isEdited; else showThis"
+  ></app-edit-user>
+
+  <ng-template #showThis>
+    <app-signup-form
+      (onRegister)="addUser($event)"
+      [formData]="users"
+    ></app-signup-form>
+  </ng-template>
+</div>
+<!-- [formData]="users" this is used to send the users data to signup-form component.ts as a @input . if we need to access this users data in that component we can use it -->
+<br>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead class="thead">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Website</th>
+        <th scope="col">Message</th>
+        <th>Edit</th>
+        <th>Done</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.nameFormControl }}</td>
+        <td>{{ user.emailFormControl }}</td>
+        <td>{{ user.phoneFormControl }}</td>
+        <td>{{ user.websiteFormControl }}</td>
+        <td>{{ user.messageFormControl }}</td>
+        <td>
+          <span
+            class="material-icons"
+            style="cursor: pointer ; color: #fc8b2f;"
+            (click)="editUser(user,true)">
+            <mat-icon>edit</mat-icon>
+          </span>
+        </td>
+
+        <td>
+          <span
+          class="material-icons"
+            style="cursor: pointer;color: red;"
+            (click)="deleteUser(user.id)"
+             >
+            <mat-icon>delete</mat-icon>
+        </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -10,11 +10,19 @@ import {MatInputModule} from '@angular/material/input';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { ViewdataComponent } from './components/viewdata/viewdata.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    SignupFormComponent,
+    ViewdataComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +32,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
-    TextFieldModule
+    TextFieldModule,
+    FormsModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
