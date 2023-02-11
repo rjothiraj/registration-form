@@ -1,0 +1,14 @@
+
+.input-field{
+    margin: 5px 0px;
+}
+.submit-btn{
+    text-align: center;
+    margin: 10px;
+}
+@media screen and (min-width: 570px) {
+    .mat-input{
+        width: 500px;
+    }
+}
+
